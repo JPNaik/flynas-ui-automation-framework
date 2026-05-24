@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Web Regression" parallel="methods" thread-count="2">
+    <parameter name="env" value="prelive"/>
+    <parameter name="browser" value="chrome"/>
+    <listeners>
+        <listener class-name="com.flynas.utils.TestListener"/>
+        <listener class-name="com.flynas.utils.AnnotationTransformer"/>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="Booking">
+        <classes>
+            <class name="com.flynas.tests.ui.BookingTest">
+                <methods>
+                    <include name="tc_02_roundTripBooking"/>
+                </methods>
+
+            </class>
+        </classes>
+    </test>
+</suite>
