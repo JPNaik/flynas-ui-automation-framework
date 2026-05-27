@@ -7,6 +7,7 @@ import com.flynas.api.payloads.FlightSelectRequest;
 import com.flynas.clients.SessionClient;
 import com.flynas.utils.APIUtils;
 import com.flynas.utils.ApiDataProvider;
+import io.qameta.allure.Step;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.apache.logging.log4j.LogManager;
@@ -34,6 +35,7 @@ public class BookingFlow extends APIBase {
     private static final ThreadLocal<ConcurrentHashMap<String, Response>> flightSearchResponse =
             ThreadLocal.withInitial(ConcurrentHashMap::new);
 
+    @Step("Generating Session token")
     @Test(priority = 1, description = "generating session token",dataProvider = "BookingFlowExcelData",dataProviderClass = ApiDataProvider.class)
     public void verifySessionToken(Map<String, String> dataMap){
         String testCaseId = dataMap.get("TestCase");
