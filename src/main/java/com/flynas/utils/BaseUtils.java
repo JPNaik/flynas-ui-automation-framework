@@ -20,11 +20,8 @@ public class BaseUtils {
         return driverContainer.get();
     }
     @BeforeMethod
-    @Parameters({"env","browser"})
-    public void launchURL(@Optional String xmlEnv,@Optional String xmlBrowser){
-        if(xmlEnv!=null){
-            System.setProperty("env",xmlEnv);
-        }
+    @Parameters({"browser"})
+    public void launchURL(@Optional String xmlBrowser){
         String targetBrowser = (xmlBrowser!=null)?xmlBrowser.toLowerCase().trim():ConfigReader.getProperty("browser").toLowerCase().trim();
         WebDriver driver;
         switch (targetBrowser){
