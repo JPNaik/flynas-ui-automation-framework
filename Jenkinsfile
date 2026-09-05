@@ -1,11 +1,11 @@
 pipeline {
     agent any
 
-    tools {
-        // Must match the tool names configured in "Manage Jenkins > Tools"
-        maven 'Maven-3.9'
-        jdk 'JDK-21'
-    }
+    // tools {
+    //     // Must match the tool names configured in "Manage Jenkins > Tools"
+    //     maven 'Maven-3.9'
+    //     jdk 'JDK-21'
+    // }
 
     stages {
         stage('Checkout Code') {
