@@ -14,7 +14,7 @@ import org.testng.annotations.Parameters;
 import java.time.Duration;
 
 public class BaseUtils {
-    private ThreadLocal<WebDriver> driverContainer = new ThreadLocal<>();
+    private final ThreadLocal<WebDriver> driverContainer = new ThreadLocal<>();
 
     public WebDriver getDriver(){
         return driverContainer.get();
