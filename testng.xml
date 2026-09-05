@@ -3,12 +3,18 @@
 <suite name="Web Regression" parallel="methods" thread-count="2">
     <parameter name="env" value="staging"/>
     <parameter name="browser" value="chrome"/>
+    <parameter name="executionPlatform" value="grid"/>
     <listeners>
         <listener class-name="com.flynas.utils.GlobalSetupListener"/>
         <listener class-name="com.flynas.utils.TestListener"/>
         <listener class-name="com.flynas.utils.AnnotationTransformer"/>
     </listeners>
     <test verbose="2" preserve-order="true" name="Booking">
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
         <classes>
             <class name="com.flynas.tests.ui.BookingTest">
 
