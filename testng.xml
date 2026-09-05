@@ -10,11 +10,11 @@
         <listener class-name="com.flynas.utils.AnnotationTransformer"/>
     </listeners>
     <test verbose="2" preserve-order="true" name="Booking">
-        <groups>
-            <run>
-                <include name="regression"/>
-            </run>
-        </groups>
+<!--        <groups>-->
+<!--            <run>-->
+<!--                <include name="regression"/>-->
+<!--            </run>-->
+<!--        </groups>-->
         <classes>
             <class name="com.flynas.tests.ui.BookingTest">
 

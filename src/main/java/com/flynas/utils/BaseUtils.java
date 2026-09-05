@@ -33,25 +33,27 @@ public class BaseUtils {
                 ? executionPlatform.toLowerCase().trim()
                 : ConfigReader.getProperty("execution.platform").toLowerCase().trim();
         WebDriver driver;
+        String isHeadless = ConfigReader.getProperty("headless");
         if (platform.equalsIgnoreCase("grid")) {
             URL gridUrl = URI.create(ConfigReader.getProperty("selenium.grid.url")).toURL();
 
             switch (targetBrowser) {
                 case "firefox":
                     FirefoxOptions firefoxOptions = new FirefoxOptions();
-                    //if (isHeadless) firefoxOptions.addArguments("-headless");
+                    if (isHeadless.equalsIgnoreCase("true")) firefoxOptions.addArguments("-headless");
                     driver = new RemoteWebDriver(gridUrl, firefoxOptions);
                     break;
 
                 case "edge":
                     EdgeOptions edgeOptions = new EdgeOptions();
-                   // if (isHeadless) edgeOptions.addArguments("--headless=new");
+                    if (isHeadless.equalsIgnoreCase("true")) edgeOptions.addArguments("--headless=new");
                     driver = new RemoteWebDriver(gridUrl, edgeOptions);
                     break;
 
                 case "chrome":
                 default:
                     ChromeOptions chromeOptions = new ChromeOptions();
+                    if (isHeadless.equalsIgnoreCase("true")) chromeOptions.addArguments("--headless=new");
                     driver = new RemoteWebDriver(gridUrl, chromeOptions);
                     break;
             }
